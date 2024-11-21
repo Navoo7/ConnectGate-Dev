@@ -5,16 +5,8 @@
 /* NRT Font */
 @font-face {
   font-family: 'NRT';
-  src: url('/fonts/NRT-Reg.woff2') format('woff2');
+  src: url('/fonts/NRT-Reg.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'NRT';
-  src: url('/fonts/NRT-Bd.woff2') format('woff2');
-  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -25,7 +17,7 @@
 }
 
 .font-arabic {
-  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
+  font-family: 'NRT', system-ui, sans-serif;
 }
 
 /* RTL Support */
