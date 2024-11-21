@@ -1,159 +1,147 @@
 "use client";
 
-import { NetworkPattern } from "@/components/sections/hero/network-pattern"; // Adjust the import path based on your file structure
+import Link from "next/link";
+import { NetworkPattern } from "@/components/sections/hero/network-pattern";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/components/providers/language-provider";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-background border-t relative overflow-hidden">
-      {/* Add the NetworkPattern background */}
       <NetworkPattern />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">ConnectGate</h3>
-            <p className="text-muted-foreground">
-              Connect. Research. Discover.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("footer.company.title")}</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#about"
+                <Link 
+                  href="/about" 
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  About
-                </a>
+                  {t("footer.company.about")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#features"
+                <Link 
+                  href="/blog" 
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Contact
-                </a>
+                  {t("footer.company.blog")}
+                </Link>
               </li>
             </ul>
           </div>
+
+          {/* Support Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("footer.support.title")}</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="/help" 
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.support.help")}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/docs" 
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.support.documentation")}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/contact" 
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.support.contact")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal Section */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">{t("footer.legal.title")}</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="/privacy" 
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.legal.privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/terms" 
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.legal.terms")}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/security" 
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("footer.legal.security")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Section */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">{t("footer.social.title")}</h3>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://github.com/Navoo7"
-                  target="_blank"
+                <a 
+                  href="https://github.com/Navoo7" 
+                  target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="GitHub"
                 >
                   <Github className="h-5 w-5" />
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://www.linkedin.com/in/navid-h-a2775b20a"
-                  target="_blank"
+                <a 
+                  href="https://www.linkedin.com/in/navid-h-a2775b20a" 
+                  target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href="mailto:navidhishyar.73@aol.com">
+                <a 
+                  href="mailto:navidhishyar.73@aol.com"
+                  aria-label="Email"
+                >
                   <Mail className="h-5 w-5" />
                 </a>
               </Button>
             </div>
           </div>
         </div>
-
-        <div className="mt-8 pt-8 border-t">
-          <p className="text-center text-muted-foreground">
-            © {new Date().getFullYear()} ConnectGate. All rights reserved.
+        
+        <div className="mt-8 pt-8 border-t border-border">
+          <p className="text-center text-sm text-muted-foreground">
+            {new Date().getFullYear()} ConnectGate. {t("footer.rights")}
           </p>
         </div>
       </div>
     </footer>
   );
 }
-
-
-
-
-
-
-// import { Github, Linkedin, Mail } from "lucide-react"
-// import { Button } from "@/components/ui/button"
-
-// export default function Footer() {
-//   return (
-//     <footer className="bg-background border-t">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4">ConnectGate</h3>
-//             <p className="text-muted-foreground">
-//               Connect. Research. Discover.
-//             </p>
-//           </div>
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-//             <ul className="space-y-2">
-//               <li>
-//                 <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-//                   About
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
-//                   Features
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
-//                   Contact
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4">Connect</h3>
-//             <div className="flex space-x-4">
-//               <Button variant="ghost" size="icon" asChild>
-//                 <a href="https://github.com/Navoo7" target="_blank" rel="noopener noreferrer">
-//                   <Github className="h-5 w-5" />
-//                 </a>
-//               </Button>
-//               <Button variant="ghost" size="icon" asChild>
-//                 <a href="https://www.linkedin.com/in/navid-h-a2775b20a" target="_blank" rel="noopener noreferrer">
-//                   <Linkedin className="h-5 w-5" />
-//                 </a>
-//               </Button>
-//               <Button variant="ghost" size="icon" asChild>
-//                 <a href="mailto:navidhishyar.73@aol.com">
-//                   <Mail className="h-5 w-5" />
-//                 </a>
-//               </Button>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="mt-8 pt-8 border-t">
-//           <p className="text-center text-muted-foreground">
-//             © {new Date().getFullYear()} ConnectGate. All rights reserved.
-//           </p>
-//         </div>
-//       </div>
-//     </footer>
-//   )
-// }

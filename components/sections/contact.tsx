@@ -10,7 +10,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useFirestore } from "@/hooks/use-firebase";
+import { db } from "@/lib/firebase";
 import { toast } from "sonner";
+import { useLanguage } from "@/components/providers/language-provider";
 import {
   Form,
   FormControl,
@@ -20,47 +22,62 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  organization: z.string().min(2, "Organization must be at least 2 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type FormValues = z.infer<typeof formSchema>;
-
 export default function Contact() {
   const { addDocument, loading } = useFirestore();
+  const { t, locale } = useLanguage();
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: t("contact.form.name.error")
+    }),
+    email: z.string().email({
+      message: t("contact.form.email.error")
+    }),
+    phone: z.string().min(10, {
+      message: t("contact.form.phone.error")
+    }),
+    organization: z.string().min(2, {
+      message: t("contact.form.organization.error")
+    }),
+    message: z.string().min(10, {
+      message: t("contact.form.message.error")
+    }),
+  });
+
+  type FormValues = z.infer<typeof formSchema>;
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       organization: "",
       message: "",
     },
   });
 
-  async function onSubmit(data: FormValues) {
+  const onSubmit = async (data: FormValues) => {
     try {
       await addDocument('webcollection/contact/submissions', {
         ...data,
         createdAt: new Date().toISOString(),
-        status: 'new'
+        status: 'new',
+        locale: locale || 'en'
       });
       
-      toast.success("Message sent successfully!", {
-        description: "We'll get back to you as soon as possible.",
+      toast.success(t("contact.form.success"), {
+        description: t("contact.form.successDescription"),
       });
 
       form.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast.error("Error sending message", {
-        description: "Please try again later.",
+      toast.error(t("contact.form.error"), {
+        description: t("contact.form.errorDescription"),
       });
     }
-  }
+  };
 
   return (
     <section id="contact" className="py-24 bg-muted/50">
@@ -72,9 +89,9 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <h2 className="text-3xl font-bold mb-4">{t("contact.title")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get in touch with our team to learn more about how ConnectGate can help your organization.
+            {t("contact.description")}
           </p>
         </motion.div>
 
@@ -94,9 +111,12 @@ export default function Contact() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Name</FormLabel>
+                          <FormLabel>{t("contact.form.name.label")}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} />
+                            <Input 
+                              placeholder={t("contact.form.name.placeholder")} 
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -107,9 +127,30 @@ export default function Contact() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel>{t("contact.form.email.label")}</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your@email.com" {...field} />
+                            <Input 
+                              type="email" 
+                              placeholder={t("contact.form.email.placeholder")} 
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("contact.form.phone.label")}</FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="tel" 
+                              placeholder={t("contact.form.phone.placeholder")} 
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -120,9 +161,12 @@ export default function Contact() {
                       name="organization"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Organization</FormLabel>
+                          <FormLabel>{t("contact.form.organization.label")}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your organization" {...field} />
+                            <Input 
+                              placeholder={t("contact.form.organization.placeholder")} 
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -133,10 +177,10 @@ export default function Contact() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Message</FormLabel>
+                          <FormLabel>{t("contact.form.message.label")}</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="How can we help?"
+                              placeholder={t("contact.form.message.placeholder")}
                               rows={4}
                               {...field}
                             />
@@ -150,7 +194,7 @@ export default function Contact() {
                       className="w-full"
                       disabled={loading}
                     >
-                      {loading ? "Sending..." : "Send Message"}
+                      {loading ? t("contact.form.sending") : t("contact.form.submit")}
                     </Button>
                   </form>
                 </Form>
@@ -166,15 +210,15 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
+              <h3 className="text-xl font-semibold mb-4">{t("contact.connectWithUs.title")}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3">
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">contact@connectgate.com</p>
+                    <p className="font-medium">{t("contact.connectWithUs.email.label")}</p>
+                    <p className="text-muted-foreground">{t("contact.connectWithUs.email.value")}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -182,8 +226,8 @@ export default function Contact() {
                     <MessageSquare className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-medium">Support</p>
-                    <p className="text-muted-foreground">support@connectgate.com</p>
+                    <p className="font-medium">{t("contact.connectWithUs.phone.label")}</p>
+                    <p className="text-muted-foreground">{t("contact.connectWithUs.phone.value")}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -191,23 +235,27 @@ export default function Contact() {
                     <Building className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-medium">Office</p>
-                    <p className="text-muted-foreground">123 Research Avenue, Innovation City</p>
+                    <p className="font-medium">{t("contact.connectWithUs.office.label")}</p>
+                    <p className="text-muted-foreground">{t("contact.connectWithUs.office.value")}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-4">FAQ</h3>
+              <h3 className="text-xl font-semibold mb-4">{t("contact.faq.title")}</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="font-medium">How do I get started?</p>
-                  <p className="text-muted-foreground">Contact us to set up your organization's account and begin your research journey.</p>
+                  <p className="font-medium">{t("contact.faq.questions.getStarted.question")}</p>
+                  <p className="text-muted-foreground">{t("contact.faq.questions.getStarted.answer")}</p>
                 </div>
                 <div>
-                  <p className="font-medium">Is my data secure?</p>
-                  <p className="text-muted-foreground">Yes, we implement enterprise-grade security measures to protect your research data.</p>
+                  <p className="font-medium">{t("contact.faq.questions.security.question")}</p>
+                  <p className="text-muted-foreground">{t("contact.faq.questions.security.answer")}</p>
+                </div>
+                <div>
+                  <p className="font-medium">{t("contact.faq.questions.cities.question")}</p>
+                  <p className="text-muted-foreground">{t("contact.faq.questions.cities.answer")}</p>
                 </div>
               </div>
             </div>

@@ -6,10 +6,13 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { NetworkPattern } from "./network-pattern";
+import { useLanguage } from "@/components/providers/language-provider";
+import { cn } from "@/lib/utils";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+  const { t, locale, dir } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -19,12 +22,21 @@ export default function Hero() {
     return null;
   }
 
+  const isRTL = locale === "ar" || locale === "ckb";
+  const fontClass = locale === "ckb" ? "font-nrt" : locale === "ar" ? "font-arabic" : "";
+
   return (
     <motion.section
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className={cn(
+        "min-h-screen flex items-center justify-center relative pt-24",
+        isRTL ? "text-right" : "text-left",
+        "overflow-visible"
+      )}
+      key={locale}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
+      dir={dir}
     >
       {/* Background grid and overlay */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-foreground/[0.02]" />
@@ -34,8 +46,159 @@ export default function Hero() {
       <NetworkPattern />
 
       {/* Hero content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center z-10">
-        {/* Header */}
+      <div className="container relative z-10">
+        <motion.div
+          className={cn(
+            "max-w-3xl mx-auto text-center space-y-8",
+            "relative z-10",
+            "overflow-visible"
+          )}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <h1
+            className={cn(
+              "text-4xl md:text-6xl font-bold",
+              fontClass,
+              isRTL && [
+                locale === "ckb" ? "leading-[2.8] font-nrt" : "leading-[2.4]",
+                "tracking-wider",
+                "py-4",
+                "overflow-visible",
+                "min-h-[100px]",
+                "flex items-center justify-center",
+                "mx-auto",
+                "relative"
+              ]
+            )}
+            style={{
+              ...(isRTL && {
+                lineHeight: locale === "ckb" ? "2.8" : "2.4",
+                paddingBottom: "0.5em",
+                paddingTop: "0.5em",
+                height: "auto",
+                minHeight: "100px",
+                letterSpacing: "0.025em",
+                marginTop: "-0.5em"
+              })
+            }}
+          >
+            <span className={cn(
+              "block relative",
+              isRTL && [
+                "px-4",
+                locale === "ckb" && "transform -translate-y-1"
+              ]
+            )}>
+              {t('hero.title')}
+            </span>
+          </h1>
+          <p
+            className={cn(
+              "text-xl text-muted-foreground",
+              fontClass,
+              isRTL && [
+                "leading-[2.2]",
+                "tracking-wide",
+                "py-2",
+                "overflow-visible"
+              ]
+            )}
+            style={{
+              ...(isRTL && {
+                lineHeight: locale === "ckb" ? "2.4" : "2.2",
+                paddingBottom: "0.3em",
+                paddingTop: "0.3em"
+              })
+            }}
+          >
+            {t('hero.description')}
+          </p>
+        </motion.div>
+
+        <motion.div
+          className={cn(
+            "flex flex-col sm:flex-row items-center justify-center gap-6 mt-12",
+            "relative z-10",
+            "overflow-visible"
+          )}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Button 
+            size="lg"
+            className={cn(
+              "text-lg px-12 h-auto",
+              fontClass,
+              isRTL && [
+                "min-h-[72px]",
+                "leading-[2.4]",
+                "tracking-wide",
+                "text-[17px]",
+                "py-6",
+                "overflow-visible"
+              ],
+              "w-full sm:w-auto"
+            )}
+            style={{
+              ...(isRTL && {
+                lineHeight: locale === "ckb" ? "2.6" : "2.4",
+                paddingTop: "1.25rem",
+                paddingBottom: "1.25rem"
+              })
+            }}
+          >
+            <span className={cn(
+              "block py-2",
+              isRTL && [
+                "relative",
+                locale === "ckb" ? "top-[6px]" : "top-[4px]",
+                "overflow-visible"
+              ]
+            )}>
+              {t('hero.getStarted')}
+            </span>
+          </Button>
+          <Button 
+            size="lg"
+            variant="outline"
+            className={cn(
+              "text-lg px-12 h-auto",
+              fontClass,
+              isRTL && [
+                "min-h-[72px]",
+                "leading-[2.4]",
+                "tracking-wide",
+                "text-[17px]",
+                "py-6",
+                "overflow-visible"
+              ],
+              "w-full sm:w-auto"
+            )}
+            style={{
+              ...(isRTL && {
+                lineHeight: locale === "ckb" ? "2.6" : "2.4",
+                paddingTop: "1.25rem",
+                paddingBottom: "1.25rem"
+              })
+            }}
+          >
+            <span className={cn(
+              "block py-2",
+              isRTL && [
+                "relative",
+                locale === "ckb" ? "top-[6px]" : "top-[4px]",
+                "overflow-visible"
+              ]
+            )}>
+              {t('hero.learnMore')}
+            </span>
+          </Button>
+        </motion.div>
+
+        {/* Trusted by */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,206 +206,32 @@ export default function Hero() {
             duration: 0.8,
             type: "spring",
             stiffness: 100,
+            delay: 0.4,
           }}
+          className="mt-16"
         >
-          <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-            Connect. Research. Discover.
-          </h1>
-          {/* Add vertical spacing */}
-          <p className="text-xl text-muted-foreground mb-8 mt-6 max-w-2xl mx-auto">
-            Streamline your research process with ConnectGate. The modern
-            platform for efficient research management and participant
-            engagement.
+          <p className={cn(
+            "text-sm text-muted-foreground",
+            fontClass,
+            isRTL && [
+              "leading-[2.2]",
+              "tracking-wide",
+              "py-1",
+              "overflow-visible"
+            ]
+          )}
+          style={{
+            ...(isRTL && {
+              lineHeight: locale === "ckb" ? "2.4" : "2.2",
+              paddingBottom: "0.2em",
+              paddingTop: "0.2em"
+            })
+          }}
+          >
+            {t('hero.trusted')}
           </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-            {/* iOS Button */}
-            <a
-              href="https://apps.apple.com/iq/app/connectgate/id6503262935"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <Button
-                size="lg"
-                className="w-full sm:w-auto px-8 py-4 text-lg font-medium gap-2 group relative overflow-hidden hover:scale-105 transition-transform"
-              >
-                <div className="relative w-5 h-5 mr-2">
-                  <Image
-                    src={
-                      theme === "dark"
-                        ? "/apple-logo-white.svg"
-                        : "/apple-logo-black.svg"
-                    }
-                    alt="Apple Logo"
-                    fill
-                    className="object-contain transition-transform group-hover:scale-110"
-                    unoptimized
-                    priority
-                  />
-                </div>
-                Download for iOS
-              </Button>
-            </a>
-
-            {/* Android Button */}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.connectgate.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <Button
-                size="lg"
-                className="w-full sm:w-auto px-8 py-4 text-lg font-medium gap-2 group relative overflow-hidden hover:scale-105 transition-transform"
-              >
-                <div className="relative w-5 h-5 mr-2">
-                  <Image
-                    src={
-                      theme === "dark"
-                        ? "/android-logo-white.svg"
-                        : "/android-logo-black.svg"
-                    }
-                    alt="Android Logo"
-                    fill
-                    className="object-contain transition-transform group-hover:scale-110"
-                    unoptimized
-                    priority
-                  />
-                </div>
-                Download for Android
-              </Button>
-            </a>
-          </div>
         </motion.div>
       </div>
     </motion.section>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // components/sections/hero/hero.tsx
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import { motion } from "framer-motion";
-// import { useTheme } from "next-themes";
-// import Image from "next/image";
-// import { useEffect, useState } from "react";
-// import { NetworkPattern } from "./network-pattern";
-
-// export default function Hero() {
-//   const [mounted, setMounted] = useState(false);
-//   const { theme } = useTheme();
-
-//   useEffect(() => {
-//     setMounted(true);
-//   }, []);
-
-//   if (!mounted) {
-//     return null;
-//   }
-
-//   return (
-//     <motion.section
-//       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
-//       initial={{ opacity: 0 }}
-//       animate={{ opacity: 1 }}
-//       transition={{ duration: 1 }}
-//     >
-//       {/* Background grid and overlay */}
-//       <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-foreground/[0.02]" />
-//       <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-[2px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-
-//       {/* Network pattern */}
-//       <NetworkPattern />
-
-//       {/* Hero content */}
-//       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center z-10"> {/* Added z-10 to ensure content is above the canvas */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{
-//             duration: 0.8,
-//             type: "spring",
-//             stiffness: 100,
-//           }}
-//         >
-//           <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-//             Connect. Research. Discover.
-//           </h1>
-//           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-//             Streamline your research process with ConnectGate. The modern
-//             platform for efficient research management and participant
-//             engagement.
-//           </p>
-//           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-//             <Button
-//               size="lg"
-//               className="gap-2 group relative overflow-hidden hover:scale-105 transition-transform"
-//             >
-//               <div className="relative w-5 h-5 mr-2">
-//                 <Image
-//                   src={
-//                     theme === "dark"
-//                       ? "/apple-logo-white.svg"
-//                       : "/apple-logo-black.svg"
-//                   }
-//                   alt="Apple Logo"
-//                   fill
-//                   className="object-contain transition-transform group-hover:scale-110"
-//                   unoptimized
-//                   priority
-//                 />
-//               </div>
-//               Download for iOS
-//             </Button>
-//             <Button
-//               size="lg"
-//               variant="outline"
-//               className="gap-2 group relative overflow-hidden hover:scale-105 transition-transform"
-//             >
-//               <div className="relative w-5 h-5 mr-2">
-//                 <Image
-//                   src={
-//                     theme === "dark"
-//                       ? "/android-logo-white.svg"
-//                       : "/android-logo-black.svg"
-//                   }
-//                   alt="Android Logo"
-//                   fill
-//                   className="object-contain transition-transform group-hover:scale-110"
-//                   unoptimized
-//                   priority
-//                 />
-//               </div>
-//               Download for Android
-//             </Button>
-//           </div>
-//         </motion.div>
-//       </div>
-//     </motion.section>
-//   );
-// }
-
-
-
-
-
- 

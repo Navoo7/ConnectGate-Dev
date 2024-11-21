@@ -1,15 +1,38 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/providers/theme-provider';
-import { Toaster } from 'sonner';
-import Navigation from '@/components/navigation';
-import Footer from '@/components/footer';
+ import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { IBM_Plex_Sans_Arabic, Noto_Kufi_Arabic, Almarai } from "next/font/google";
+import localFont from 'next/font/local';
+import { RootLayoutClient } from "@/components/root-layout-client";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: 'ConnectGate - Connect. Research. Discover.',
-  description: 'A research-focused mobile app for efficient research management and participant engagement.',
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['arabic'],
+  variable: '--font-ibm-plex-sans-arabic',
+});
+
+const notoKufiArabic = Noto_Kufi_Arabic({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["arabic"],
+  variable: "--font-noto-kufi-arabic",
+});
+
+const almarai = Almarai({
+  weight: ["300", "400", "700", "800"],
+  subsets: ["arabic"],
+  variable: "--font-almarai",
+});
+
+const nrt = localFont({
+  src: './fonts/NRT-Reg.ttf',
+  variable: '--font-nrt',
+});
+
+export const metadata: Metadata = {
+  title: "ConnectGate",
+  description: "Research Management Platform",
 };
 
 export default function RootLayout({
@@ -19,13 +42,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider>
-          <Navigation />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <Toaster />
-        </ThemeProvider>
+      <head />
+      <body className={`${ibmPlexSansArabic.variable} ${notoKufiArabic.variable} ${almarai.variable} ${nrt.variable} min-h-screen bg-background font-sans antialiased`}>
+        <RootLayoutClient className="min-h-screen bg-background font-sans antialiased">
+          {children}
+        </RootLayoutClient>
       </body>
     </html>
   );

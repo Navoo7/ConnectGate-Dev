@@ -1,0 +1,512 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "search": "Search",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout",
+    "back": "Back"
+  },
+  "hero": {
+    "title": "Connect. Research. Discover.",
+    "description": "A comprehensive research management platform designed to streamline your research workflow, enhance collaboration, and drive innovation.",
+    "downloadIOS": "Download for iOS",
+    "downloadAndroid": "Download for Android",
+    "features": {
+      "userManagement": "User Management",
+      "analytics": "Advanced Analytics",
+      "research": "Research Tools",
+      "surveys": "Survey Creation",
+      "collaboration": "Team Collaboration"
+    },
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "trusted": "Trusted by researchers worldwide"
+  },
+  "about": {
+    "title": "About ConnectGate",
+    "description": "ConnectGate is a revolutionary platform designed to transform how organizations manage research processes and engage with participants.",
+    "features": {
+      "research": {
+        "title": "Research Management",
+        "description": "Streamline your research process with powerful management tools and intuitive interfaces."
+      },
+      "participant": {
+        "title": "Participant Engagement",
+        "description": "Connect with participants seamlessly and gather valuable insights through interactive surveys."
+      },
+      "analytics": {
+        "title": "Data Analytics",
+        "description": "Transform research data into actionable insights with advanced analytics capabilities."
+      }
+    }
+  },
+  "features": {
+    "title": "Powerful Features",
+    "description": "Discover the tools that make ConnectGate the perfect platform for your research needs.",
+    "list": {
+      "userManagement": {
+        "title": "User Management",
+        "description": "Comprehensive tools for managing user accounts and permissions."
+      },
+      "surveyCreation": {
+        "title": "Survey Creation",
+        "description": "Create engaging surveys with our intuitive question builder."
+      },
+      "imageSupport": {
+        "title": "Image Support",
+        "description": "Enhance surveys with image integration capabilities."
+      },
+      "analytics": {
+        "title": "Real-time Analytics",
+        "description": "Monitor and analyze responses in real-time."
+      },
+      "security": {
+        "title": "Secure Data",
+        "description": "Enterprise-grade security for your research data."
+      },
+      "performance": {
+        "title": "Fast Performance",
+        "description": "Lightning-fast performance for seamless research operations."
+      }
+    }
+  },
+  "screenshots": {
+    "title": "App Screenshots",
+    "description": "Take a visual tour of ConnectGate's powerful features and intuitive interface.",
+    "titles": {
+      "analytics": "Data Analytics",
+      "research": "Research Management",
+      "engagement": "User Engagement"
+    }
+  },
+  "getStarted": {
+    "title": "Get Started",
+    "description": "Follow these simple steps to begin your research journey with ConnectGate.",
+    "cta": "Start Now",
+    "steps": {
+      "contact": {
+        "title": "Contact Us",
+        "description": "Get in touch with our team to discuss your research needs."
+      },
+      "adminSetup": {
+        "title": "Admin Setup",
+        "description": "Set up your administrator account and configure your organization settings."
+      },
+      "userManagement": {
+        "title": "User Management",
+        "description": "Add and manage your team members and their roles."
+      },
+      "groupCreation": {
+        "title": "Group Creation",
+        "description": "Create and organize research groups for better collaboration."
+      },
+      "surveyManagement": {
+        "title": "Survey Management",
+        "description": "Create and manage your research surveys efficiently."
+      },
+      "researchJourney": {
+        "title": "Research Journey",
+        "description": "Begin your research journey with powerful tools and analytics."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Have questions about ConnectGate? We're here to help! Get in touch with our team for support or inquiries.",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name",
+        "error": "Name must be at least 2 characters"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "error": "Please enter a valid email address"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "+964 XXX XXX XXXX",
+        "error": "Phone number must be at least 10 digits"
+      },
+      "organization": {
+        "label": "Organization",
+        "placeholder": "Enter your organization name",
+        "error": "Organization must be at least 2 characters"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "How can we help you?",
+        "error": "Message must be at least 10 characters"
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message Sent",
+      "successDescription": "Thank you for contacting us. We'll get back to you soon.",
+      "error": "Error",
+      "errorDescription": "Something went wrong. Please try again."
+    },
+    "connectWithUs": {
+      "title": "Connect With Us",
+      "email": {
+        "label": "Email",
+        "value": "contact@connectgate.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+964 750 444 4444"
+      },
+      "office": {
+        "label": "Office",
+        "value": "123 Research Avenue, Innovation City"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "getStarted": {
+          "question": "How do I get started?",
+          "answer": "Contact us to set up your organization's account and begin your research journey."
+        },
+        "security": {
+          "question": "Is my data secure?",
+          "answer": "Yes, we implement enterprise-grade security measures to protect your research data."
+        },
+        "cities": {
+          "question": "Can we operate in multiple cities?",
+          "answer": "Yes, ConnectGate allows you to manage separate operations in different cities while keeping each location's data completely separate and secure."
+        }
+      }
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me"
+  },
+  "navigation": {
+    "home": "Home",
+    "mockup": "Mockup",
+    "about": "About",
+    "features": "Features",
+    "projects": "Projects",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "projects": {
+    "title": "In The Frame",
+    "description": "Where elegant design meets timeless beauty",
+    "titles": {
+      "modern": "In The Frame",
+      "sleek": "Sleek Design",
+      "elegant": "Elegant Experience"
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "careers": "Careers",
+      "press": "Press",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Help Center",
+      "documentation": "Documentation",
+      "contact": "Contact Us",
+      "status": "System Status"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "security": "Security",
+      "compliance": "Compliance"
+    },
+    "social": {
+      "title": "Social",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "discord": "Discord"
+    },
+    "copyright": " 2024 ConnectGate. All rights reserved."
+  },
+  "mockups": {
+    "title": "Explore ConnectGate: Where Research Meets Innovation",
+    "description": "Experience the future of research management with our intuitive mobile app, designed to streamline your workflow and enhance participant engagement.",
+    "device1": "ConnectGate App Screenshot",
+    "device2": "Mobile Experience",
+    "device3": "Tablet Interface",
+    "card1": {
+      "title": "Intuitive Interface",
+      "description": "Designed for efficiency"
+    },
+    "card2": {
+      "title": "Real-time Updates",
+      "description": "Stay connected always"
+    }
+  },
+  "privacy": {
+    "back": "Back",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated",
+    "description": "This Privacy Policy outlines the policies and practices regarding the collection, use, and disclosure of user information when utilizing the ConnectGate service. It also informs users about their privacy rights and the legal protections in place.",
+    "sections": {
+      "interpretation": {
+        "title": "Interpretation and Definitions",
+        "content": "Terms beginning with an initial capital letter have meanings defined under the following conditions. The definitions provided apply whether the terms appear in singular or plural.\n\n• Account: A unique account created to access our Service\n• Affiliate: An entity that controls, is controlled by, or is under common control with ConnectGate\n• Application: Refers to ConnectGate, the software program provided by the Company\n• Company: Referred to as \"the Company,\" \"We,\" \"Us,\" or \"Our\" in this Agreement\n• Country: Iraq\n• Device: Any smartphone capable of accessing the Service (e.g., iPhone, Android)\n• Personal Data: Information related to an identified or identifiable individual\n• Service: Refers to the ConnectGate Application\n• Service Provider: Natural or legal person processing data on behalf of the Company"
+      },
+      "personalData": {
+        "title": "Collecting and Using Your Personal Data",
+        "content": "Types of Data Collected:\n\nPersonal Data:\nWhile using our Service, we may collect personally identifiable information, including but not limited to:\n• First name and last name\n• Phone number\n• Email address\n\nUsage Data:\nAutomatically collected data during Service use may include:\n• Internet Protocol address\n• Browser type and version\n• Pages visited\n• Date and time of visit\n• Time spent on pages\n• Unique device identifiers\n\nLocation Information:\nWith your prior permission and while using the Application, we may collect and process information about your location to provide location-based services."
+      },
+      "dataUse": {
+        "title": "Use of Your Personal Data",
+        "content": "We may use Personal Data for various purposes:\n\n• Providing and maintaining our Service\n• Managing your Account\n• Contacting you for updates or informative communications\n• Providing news, special offers, and general information\n• Managing user requests\n• Evaluating and improving our Service\n\nWe will not use your Personal Data for purposes other than those specified in this Privacy Policy without your consent."
+      },
+      "dataSharing": {
+        "title": "Sharing Your Personal Information",
+        "content": "We may share your personal information in these situations:\n\n• With Service Providers for Service monitoring and analysis\n• During business transfers, mergers, or acquisitions\n• With Affiliates to honor this Privacy Policy\n• With business partners to offer products, services, or promotions\n• With other users when you share personal information\n• With your consent for other purposes\n\nWe take all necessary steps to ensure that companies receiving your data are bound by the same level of data protection."
+      },
+      "dataRetention": {
+        "title": "Retention and Transfer of Personal Data",
+        "content": "Data Retention:\n• We retain Personal Data only as long as necessary for the purposes outlined in this Privacy Policy\n• Usage Data may be retained for internal analysis, security, or functionality improvement\n\nData Transfer:\n• Your information may be processed and maintained outside your jurisdiction\n• We take necessary steps to ensure secure data treatment in accordance with this Privacy Policy\n• You consent to this transfer by using our Service"
+      },
+      "security": {
+        "title": "Security of Your Personal Data",
+        "content": "The security of your Personal Data is important to us, but remember that no method of transmission over the Internet or electronic storage is 100% secure.\n\nWe strive to use commercially acceptable means to protect your Personal Data, including:\n• Encrypted data transmission\n• Regular security assessments\n• Access controls and authentication\n• Regular security updates\n\nWhile we implement these security measures, we cannot guarantee absolute security."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions about this Privacy Policy, please contact us:"
+    }
+  },
+  "terms": {
+    "back": "Back",
+    "title": "Terms and Conditions",
+    "lastUpdated": "Last updated",
+    "description": "By accessing or using the ConnectGate application, you agree to comply with and be bound by these Terms and Conditions. Please read these terms carefully before using our Service.",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing or using the ConnectGate application (\"ConnectGate\"), you agree to comply with and be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not use our Service."
+      },
+      "userAccounts": {
+        "title": "User Accounts",
+        "content": "To use certain features of the App, your organization's admin will create your account. As the app does not require registration by individual users, all access and activities are managed by the admin.\n\nYou are responsible for maintaining the confidentiality of your account information provided by the admin, and you agree to accept responsibility for all activities that occur under your account."
+      },
+      "appropriateUse": {
+        "title": "Appropriate Use",
+        "content": "You agree to use the App for lawful purposes and in a way that does not infringe upon the rights of others.\n\nAny use of the App for malicious or unlawful purposes is strictly prohibited."
+      },
+      "dataManagement": {
+        "title": "Data and Content Management",
+        "content": "• Admins can create questions, manage groups, and download reports\n• Users can answer questions and participate in groups as assigned by the admin\n• The information managed and shared within the app is to be used solely for the intended research purposes\n• No personal data is collected from users by the app"
+      },
+      "noDataCollection": {
+        "title": "No Data Collection",
+        "content": "ConnectGate does not collect any personal data from users.\n\nThe app does not require any permissions, and no user data is transmitted or stored by the Company."
+      },
+      "changes": {
+        "title": "Changes to Terms and Conditions",
+        "content": "We reserve the right to update or modify these Terms and Conditions at any time.\n\nYou will be notified of any changes, and your continued use of the App after the changes signify your acceptance of the updated Terms and Conditions."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions about these Terms and Conditions, please contact us:"
+    }
+  },
+  "security": {
+    "title": "Security Policy",
+    "encryption": {
+      "title": "Data Encryption",
+      "content": "We employ industry-standard encryption protocols to protect your data both in transit and at rest. All communications between your device and our servers are encrypted using TLS 1.3."
+    },
+    "authentication": {
+      "title": "Authentication & Access Control",
+      "content": "We implement robust authentication mechanisms including multi-factor authentication and secure password policies. Access to data is strictly controlled and monitored."
+    },
+    "dataProtection": {
+      "title": "Data Protection Measures",
+      "content": "Your research data is protected using multiple layers of security. We regularly backup data and implement strict access controls to prevent unauthorized access."
+    },
+    "monitoring": {
+      "title": "Security Monitoring",
+      "content": "Our systems are continuously monitored for potential security threats. We employ advanced threat detection systems and regular security audits."
+    },
+    "compliance": {
+      "title": "Regulatory Compliance",
+      "content": "We adhere to international security standards and maintain compliance with relevant data protection regulations to ensure the highest level of security."
+    },
+    "incident": {
+      "title": "Incident Response",
+      "content": "We have a comprehensive incident response plan in place. In the event of a security incident, we will promptly notify affected users and take necessary remedial actions."
+    },
+    "updates": {
+      "title": "Security Updates",
+      "content": "We regularly update our security measures to address new threats and vulnerabilities. Our systems are continuously patched and maintained."
+    },
+    "contact": {
+      "title": "Security Contact",
+      "content": "For any security concerns or to report potential vulnerabilities, please contact our security team immediately."
+    }
+  },
+  "help": {
+    "title": "Help Center",
+    "gettingStarted": {
+      "title": "Getting Started",
+      "description": "Learn how to use ConnectGate effectively",
+      "topics": {
+        "account": {
+          "title": "Account Setup",
+          "content": "Learn how to create and manage your account"
+        },
+        "projects": {
+          "title": "Project Management",
+          "content": "Understand how to create and organize research projects"
+        },
+        "research": {
+          "title": "Research Tools",
+          "content": "Discover our powerful research management tools"
+        },
+        "collaboration": {
+          "title": "Team Collaboration",
+          "content": "Learn how to work effectively with your team"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "categories": {
+        "general": {
+          "title": "General Questions",
+          "content": "Basic information about ConnectGate"
+        },
+        "technical": {
+          "title": "Technical Support",
+          "content": "Technical issues and troubleshooting"
+        },
+        "billing": {
+          "title": "Billing & Subscription",
+          "content": "Questions about pricing and billing"
+        },
+        "support": {
+          "title": "Support Options",
+          "content": "Ways to get help and support"
+        }
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "featured": {
+      "title": "Featured Post",
+      "post": {
+        "title": "Introducing ConnectGate: The Future of Research Management",
+        "excerpt": "Discover how ConnectGate is transforming research management for teams worldwide.",
+        "date": "March 15, 2024"
+      }
+    },
+    "latest": {
+      "title": "Latest Posts",
+      "posts": {
+        "research": {
+          "title": "Best Practices for Research Management",
+          "excerpt": "Learn how to organize and manage your research effectively.",
+          "date": "March 10, 2024"
+        },
+        "updates": {
+          "title": "New Features Release",
+          "excerpt": "Explore the latest features and improvements in ConnectGate.",
+          "date": "March 5, 2024"
+        },
+        "tutorials": {
+          "title": "Getting Started Guide",
+          "excerpt": "A comprehensive guide to getting started with ConnectGate.",
+          "date": "March 1, 2024"
+        },
+        "community": {
+          "title": "Community Spotlight",
+          "excerpt": "See how other researchers are using ConnectGate.",
+          "date": "February 25, 2024"
+        }
+      }
+    }
+  },
+  "docs": {
+    "title": "Documentation",
+    "gettingStarted": {
+      "title": "Getting Started",
+      "sections": {
+        "installation": {
+          "title": "Installation",
+          "content": "Quick guide to setting up ConnectGate"
+        },
+        "configuration": {
+          "title": "Configuration",
+          "content": "Configure ConnectGate for your needs"
+        },
+        "authentication": {
+          "title": "Authentication",
+          "content": "Learn about security and authentication"
+        },
+        "usage": {
+          "title": "Basic Usage",
+          "content": "Get started with basic features"
+        }
+      }
+    },
+    "api": {
+      "title": "API Reference",
+      "sections": {
+        "endpoints": {
+          "title": "API Endpoints",
+          "content": "Complete list of API endpoints"
+        },
+        "authentication": {
+          "title": "API Authentication",
+          "content": "How to authenticate API requests"
+        },
+        "responses": {
+          "title": "Response Format",
+          "content": "Understanding API responses"
+        },
+        "examples": {
+          "title": "Code Examples",
+          "content": "Example API usage in different languages"
+        }
+      }
+    },
+    "guides": {
+      "title": "User Guides",
+      "topics": {
+        "projects": {
+          "title": "Project Management",
+          "content": "Detailed guide to project management"
+        },
+        "research": {
+          "title": "Research Tools",
+          "content": "Using research management tools"
+        },
+        "collaboration": {
+          "title": "Team Collaboration",
+          "content": "Working with team members"
+        },
+        "export": {
+          "title": "Data Export",
+          "content": "Exporting and backing up data"
+        }
+      }
+    }
+  }
+}

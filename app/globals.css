@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* NRT Font */
+@font-face {
+  font-family: 'NRT';
+  src: url('/fonts/NRT-Reg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NRT';
+  src: url('/fonts/NRT-Bd.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font classes */
+.font-nrt {
+  font-family: 'NRT', system-ui, sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -76,7 +115,22 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+  }
+  /* Kurdish text */
+  [dir="rtl"][lang="ckb"] {
+    font-family: var(--font-nrt), var(--font-noto-kufi-arabic), sans-serif;
+  }
+  /* Arabic text */
+  [dir="rtl"][lang="ar"] {
+    font-family: var(--font-almarai), var(--font-noto-kufi-arabic), var(--font-ibm-plex-sans-arabic), sans-serif;
+  }
+  /* Default LTR text */
+  [dir="ltr"] {
+    font-family: Inter, sans-serif;
   }
 }

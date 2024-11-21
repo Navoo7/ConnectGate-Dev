@@ -2,22 +2,23 @@
 
 import { toast } from "sonner"
 
-export const useToast = () => {
-  return {
-    toast: (props: {
-      title: string
-      description?: string
-      variant?: "default" | "destructive"
-    }) => {
-      if (props.variant === "destructive") {
-        toast.error(props.title, {
-          description: props.description,
-        })
-      } else {
-        toast.success(props.title, {
-          description: props.description,
-        })
-      }
-    },
-  }
+type ToastProps = {
+  title: string
+  description?: string
+  variant?: "default" | "destructive" | "success"
 }
+
+export const useToast = () => ({
+  toast: ({ title, description, variant = "default" }: ToastProps) => {
+    switch (variant) {
+      case "destructive":
+        toast.error(title, { description })
+        break
+      case "success":
+        toast.success(title, { description })
+        break
+      default:
+        toast(title, { description })
+    }
+  },
+})
